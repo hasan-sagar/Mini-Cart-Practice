@@ -2,10 +2,17 @@
 import useCartStore from "@/store/cartStore";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { useEffect } from "react";
 
 function page() {
-  const { items, getTotalPrice, removeFromCart, quantityUpdate } =
+  const { items, getTotalPrice, removeFromCart, quantityUpdate, clearCart } =
     useCartStore() as any;
+
+  useEffect(() => {
+    if (items.length === 0) {
+      return clearCart();
+    }
+  }, []);
 
   return (
     <div>
@@ -16,6 +23,12 @@ function page() {
               <h1 className="text-xl font-bold text-gray-900 sm:text-3xl">
                 Your Cart
               </h1>
+              <p
+                onClick={() => clearCart()}
+                className="text-red-500 cursor-pointer"
+              >
+                Clear my cart
+              </p>
             </header>
 
             <div className="mt-8">

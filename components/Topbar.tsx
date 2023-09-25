@@ -50,7 +50,7 @@ function Topbar() {
                           height={20}
                         />
                         <p className="absolute inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500  rounded-full -top-1 -right-0">
-                          {/* {totalItems} */}
+                          {totalItems}
                         </p>
                       </div>
 
